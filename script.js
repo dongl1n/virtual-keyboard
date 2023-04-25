@@ -1,7 +1,7 @@
 let langCode='En', text, textBuf='', isCapslock=0;
 import keys from './assets/json/en.json' assert { type: "json" };
 
-function createKeyboard(){
+let createKeyboard= () => {
   let wrapper = document.createElement('div');
   wrapper.classList='wrapper';
   document.body.append(wrapper);
@@ -44,15 +44,11 @@ function createKeyboard(){
   }
 }
 
-function deleteKeyboard(){
-  document.querySelector('.wrapper').remove();
-}
+let deleteKeyboard = () => document.querySelector('.wrapper').remove();
 
-function updateVar(){
-  text = document.querySelector('.main__text-block');
-}
+let updateVar = () => text = document.querySelector('.main__text-block');
 
-function animateKey(key){
+let animateKey = key => {
   let keysPage = document.querySelectorAll('.keyboard__key');
   for(let i=0; i<keysPage.length; i++){
     if(key==='backspace' && keysPage[i].classList.contains('backspace')){
@@ -73,7 +69,7 @@ function animateKey(key){
   }
 }
 
-function selectLang(){
+let selectLang = () => {
   if(langCode==='En') langCode='Ru';
   else langCode='En';
   deleteKeyboard();
@@ -90,7 +86,6 @@ setInterval(()=>{
 
 setInterval(()=>{
   updateVar();
-  let keysPage = document.querySelectorAll('.keyboard__key');
 }, 500)
 
 
