@@ -1,55 +1,81 @@
 [
   {
     "text": "<span>~</span>`",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "`",
+    "supKey": "~"
   },
   {
     "text": "<span>!</span>1",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "1",
+    "supKey": "!"
   },
   {
     "text": "<span>@</span>2",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "2",
+    "supKey": "@"
   },
   {
     "text": "<span>#</span>3",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "3",
+    "supKey": "#"
   },
   {
     "text": "<span>$</span>4",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "4",
+    "supKey": "$"
   },
   {
     "text": "<span>%</span>5",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "5",
+    "supKey": "%"
   },
   {
     "text": "<span>^</span>6",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "6",
+    "supKey": "^"
   },
   {
     "text": "<span>&</span>7",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "7",
+    "supKey": "&"
   },
   {
     "text": "<span>*</span>8",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "8",
+    "supKey": "*"
   },
   {
     "text": "<span>(</span>9",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "9",
+    "supKey": "("
   },
   {
     "text": "<span>)</span>0",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "0",
+    "supKey": ")"
   },
   {
     "text": "<span>_</span>-",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "-",
+    "supKey": "_"
   },
   {
     "text": "<span>+</span>=",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "=",
+    "supKey": "+"
   },
   {
     "text": "Backspace",
@@ -61,55 +87,81 @@
   },
   {
     "text": "Qq",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "q",
+    "supKey": "Q"
   },
   {
     "text": "Ww",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "w",
+    "supKey": "W"
   },
   {
     "text": "Ee",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "e",
+    "supKey": "E"
   },
   {
     "text": "Rr",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "r",
+    "supKey": "R"
   },
   {
     "text": "Tt",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "t",
+    "supKey": "T"
   },
   {
     "text": "Yy",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "y",
+    "supKey": "Y"
   },
   {
     "text": "Uu",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "u",
+    "supKey": "U"
   },
   {
     "text": "Ii",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "i",
+    "supKey": "I"
   },
   {
     "text": "Oo",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "o",
+    "supKey": "O"
   },
   {
     "text": "Pp",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "p",
+    "supKey": "P"
   },
   {
     "text": "<span>{</span>[",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "[",
+    "supKey": "{"
   },
   {
     "text": "<span>}</span>]",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "]",
+    "supKey": "}"
   },
   {
     "text": "<span>|</span>\\",
-    "class": "keyboard__key slash"
+    "class": "keyboard__key slash",
+    "key": "\\",
+    "supKey": "|"
   },
   {
     "text": "Del",
@@ -121,51 +173,75 @@
   },
   {
     "text": "Aa",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "a",
+    "supKey": "A"
   },
   {
     "text": "Ss",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "s",
+    "supKey": "S"
   },
   {
     "text": "Dd",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "d",
+    "supKey": "D"
   },
   {
     "text": "Ff",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "f",
+    "supKey": "F"
   },
   {
     "text": "Gg",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "g",
+    "supKey": "G"
   },
   {
     "text": "Hh",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "h",
+    "supKey": "H"
   },
   {
     "text": "Jj",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "j",
+    "supKey": "J"
   },
   {
     "text": "Kk",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "k",
+    "supKey": "K"
   },
   {
     "text": "Ll",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "l",
+    "supKey": "L"
   },
   {
     "text": "<span>:</span>;",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": ";",
+    "supKey": ":"
   },
   {
     "text": "<span>\"</span>'",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "'",
+    "supKey": "\""
   },
   {
     "text": "Enter ↵",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key enter",
+    "key": "enter",
+    "supKey": "enter"
   },
   {
     "text": "⇧ Shift",
@@ -173,47 +249,71 @@
   },
   {
     "text": "Zz",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "z",
+    "supKey": "Z"
   },
   {
     "text": "Xx",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "x",
+    "supKey": "X"
   },
   {
     "text": "Cc",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "c",
+    "supKey": "C"
   },
   {
     "text": "Vv",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "v",
+    "supKey": "V"
   },
   {
     "text": "Bb",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "b",
+    "supKey": "B"
   },
   {
     "text": "Nn",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "n",
+    "supKey": "N"
   },
   {
     "text": "Mm",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": "m",
+    "supKey": "M"
   },
   {
     "text": "<span>&lt;</span>,",
-    "class": "keyboard__key standart"
+    "class": "keyboard__key standart",
+    "key": ",",
+    "supKey": "<"
   },
   {
-    "text": "<span>></span>'",
-    "class": "keyboard__key standart"
+    "text": "<span>></span>.",
+    "class": "keyboard__key standart",
+    "key": ".",
+    "supKey": ">"
   },
   {
-    "text": "Shift",
-    "class": "keyboard__key rigth-shift"
+    "text": "<span>/</span>?",
+    "class": "keyboard__key standart",
+    "key": "/",
+    "supKey": "?"
   },
   {
     "text": "↑",
     "class": "keyboard__key arrow up"
+  },
+  {
+    "text": "Shift",
+    "class": "keyboard__key rigth-shift"
   },
   {
     "text": "Ctrl",
@@ -224,7 +324,7 @@
     "class": "keyboard__key alt"
   },
   {
-    "text": "",
+    "text": " ",
     "class": "keyboard__key space"
   },
   {
@@ -246,11 +346,5 @@
   {
     "text": "→",
     "class": "keyboard__key arrow rigth"
-  },
-  {
-    "text": "Lang",
-    "class": "keyboard__key lang"
   }
-  
-
 ]

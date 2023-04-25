@@ -91,6 +91,7 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  justify-items: center;
   -ms-grid-columns: (auto)[16];
       grid-template-columns: repeat(16, auto);
   -ms-grid-rows: (40px)[5];
@@ -133,6 +134,39 @@ body {
   font-size: 12px;
 }
 
+.keyboard__animation {
+  -webkit-animation-name: active;
+          animation-name: active;
+  -webkit-animation-fill-mode: none;
+          animation-fill-mode: none;
+  -webkit-animation-duration: .4s;
+          animation-duration: .4s;
+}
+
+@-webkit-keyframes active {
+  0% {
+    background-color: inherit;
+  }
+  50% {
+    background-color: #9fe5ff;
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+
+@keyframes active {
+  0% {
+    background-color: inherit;
+  }
+  50% {
+    background-color: #9fe5ff;
+  }
+  100% {
+    background-color: inherit;
+  }
+}
+
 /*Key types*/
 .standart,
 .del,
@@ -141,7 +175,7 @@ body {
 }
 
 .backspace {
-  width: 150px;
+  width: 165px;
   grid-column: span 3;
 }
 
@@ -156,29 +190,28 @@ body {
 }
 
 .enter {
-  width: 150px;
+  width: 165px;
   grid-column: span 3;
 }
 
 .shift {
-  width: 150px;
-  grid-column: span 3;
+  width: 180px;
+  grid-column: span 4;
 }
 
 .rigth-shift {
-  width: 100px;
-  grid-column: span 2;
+  width: 30px;
 }
 
 .ctrl,
 .alt {
-  width: 90px;
+  width: 80px;
   grid-column: span 2;
 }
 
 .rigth-ctrl,
 .rigth-alt {
-  width: 30px;
+  width: 40px;
   grid-column: span 1;
 }
 
@@ -187,11 +220,11 @@ body {
 }
 
 .space {
-  width: 250px;
-  grid-column: span 5;
+  width: 350px;
+  grid-column: span 7;
 }
 
-.language {
-  width: 30px;
+.rigth {
+  grid-template: 20px;
 }
 /*# sourceMappingURL=style.css.map */

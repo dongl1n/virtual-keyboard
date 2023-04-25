@@ -63,6 +63,7 @@ body{
   &__key-wrapper{
     display: grid;
     justify-content: center;
+    justify-items: center;
     grid-template-columns: repeat(16, auto);
     grid-template-rows: repeat(5, 40px);
     grid-gap: 10px;
@@ -93,6 +94,26 @@ body{
     align-self: flex-start;
     font-size: 12px;
   }
+
+  &__animation{
+    animation-name: active;
+    animation-fill-mode: none;
+    animation-duration: .4s ;
+
+  }
+}
+
+@keyframes active {
+  0% {
+    background-color: inherit;
+  }
+
+  50% {
+    background-color: rgb(159, 229, 255);
+  }
+  100% {
+    background-color: inherit;
+  }
 }
 
 /*Key types*/
@@ -104,7 +125,7 @@ body{
 }
 
 .backspace{
-  width: 150px;
+  width: 165px;
   grid-column: span 3;
 }
 
@@ -119,29 +140,28 @@ body{
 }
 
 .enter{
-  width: 150px;
+  width: 165px;
   grid-column: span 3;
 }
 
 .shift{
-  width: 150px;
-  grid-column: span 3;
+  width: 180px;
+  grid-column: span 4;
 }
 
 .rigth-shift{
-  width: 100px;
-  grid-column: span 2;
+  width: 30px;
 }
 
 .ctrl,
 .alt{
-  width: 90px;
+  width: 80px;
   grid-column: span 2;
 }
 
 .rigth-ctrl,
 .rigth-alt{
-  width: 30px;
+  width: 40px;
   grid-column: span 1;
 }
 
@@ -150,10 +170,10 @@ body{
 }
 
 .space{
-  width: 250px;
-  grid-column: span 5;
+  width: 350px;
+  grid-column: span 7;
 }
 
-.language{
-  width: 30px;
+.rigth{
+  grid-template: 20px;
 }
