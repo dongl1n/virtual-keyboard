@@ -1,0 +1,256 @@
+[
+  {
+    "text": "<span>~</span>`",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>!</span>1",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>@</span>2",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>#</span>3",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>$</span>4",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>%</span>5",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>^</span>6",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>&</span>7",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>*</span>8",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>(</span>9",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>)</span>0",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>_</span>-",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>+</span>=",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Backspace",
+    "class": "keyboard__key backspace"
+  },
+  {
+    "text": "Tab ↹",
+    "class": "keyboard__key tab"
+  },
+  {
+    "text": "Qq",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Ww",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Ee",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Rr",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Tt",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Yy",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Uu",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Ii",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Oo",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Pp",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>{</span>[",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>}</span>]",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>|</span>\\",
+    "class": "keyboard__key slash"
+  },
+  {
+    "text": "Del",
+    "class": "keyboard__key del"
+  },
+  {
+    "text": "Caps Lock",
+    "class": "keyboard__key capslock"
+  },
+  {
+    "text": "Aa",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Ss",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Dd",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Ff",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Gg",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Hh",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Jj",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Kk",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Ll",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>:</span>;",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>\"</span>'",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Enter ↵",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "⇧ Shift",
+    "class": "keyboard__key shift"
+  },
+  {
+    "text": "Zz",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Xx",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Cc",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Vv",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Bb",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Nn",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Mm",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>&lt;</span>,",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "<span>></span>'",
+    "class": "keyboard__key standart"
+  },
+  {
+    "text": "Shift",
+    "class": "keyboard__key rigth-shift"
+  },
+  {
+    "text": "↑",
+    "class": "keyboard__key arrow up"
+  },
+  {
+    "text": "Ctrl",
+    "class": "keyboard__key ctrl"
+  },
+  {
+    "text": "Alt",
+    "class": "keyboard__key alt"
+  },
+  {
+    "text": "",
+    "class": "keyboard__key space"
+  },
+  {
+    "text": "Alt",
+    "class": "keyboard__key rigth-alt"
+  },
+  {
+    "text": "Ctrl",
+    "class": "keyboard__key rigth-ctrl"
+  },
+  {
+    "text": "←",
+    "class": "keyboard__key arrow left"
+  },
+  {
+    "text": "↓",
+    "class": "keyboard__key arrow bottom"
+  },
+  {
+    "text": "→",
+    "class": "keyboard__key arrow rigth"
+  },
+  {
+    "text": "Lang",
+    "class": "keyboard__key lang"
+  }
+  
+
+]

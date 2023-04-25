@@ -1,0 +1,159 @@
+body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(90deg, rgb(166, 255, 254) 0%, rgba(255,255,255,1) 100%);
+}
+
+.wrapper{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+.main{
+  display: flex;
+  flex-direction: column;
+  gap: 40px 0px;
+  margin-top: 60px;
+
+  &__lang{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-weight: 600;
+    opacity: .6;
+  }
+
+  &__lang-image{
+    width: 40px;
+    height: 40px;
+    margin-right: 5px;
+    background-image: url(../assets/language-solid.svg);
+    background-size: 40px 40px;
+  }
+
+  &__text-block{
+    width: 880px;
+    height: 200px;
+    padding: 10px;
+    resize: none;
+    font-size: 22px;
+    outline: none;
+    background-color: white;
+    box-shadow: 4px 4px 8px 0px rgba(0, 103, 182, 0.42);
+    border-radius: 10px;
+    border-color: transparent;
+  }
+}
+
+.keyboard{
+  width: 900px;
+  height: 300px;
+  color: #0059ff;
+  background-color: #e2ffff;
+  box-shadow: 4px 4px 8px 0px rgba(0, 103, 182, 0.42);
+  border-radius: 10px;
+
+  &__key-wrapper{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(16, auto);
+    grid-template-rows: repeat(5, 40px);
+    grid-gap: 10px;
+    padding: 20px;
+  }
+
+  &__key{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+    padding: 5px;
+    background-color: white;
+    box-shadow: 0px 9px 12px -5px rgba(0, 103, 182, 0.44);
+    border-radius: 5px;
+    transition: .2s ease-in;
+  }
+
+  &__key:hover{
+    background-color: rgb(211, 243, 255);
+  }
+
+  &__key:active{
+    background-color: rgb(159, 229, 255);
+  }
+
+  &__key > span{
+    align-self: flex-start;
+    font-size: 12px;
+  }
+}
+
+/*Key types*/
+
+.standart, 
+.del,
+.arrow{
+  width: 30px;
+}
+
+.backspace{
+  width: 150px;
+  grid-column: span 3;
+}
+
+.tab,
+.capslock{
+  width: 90px;
+  grid-column: span 2;
+}
+
+.slash{
+  width: 50px;
+}
+
+.enter{
+  width: 150px;
+  grid-column: span 3;
+}
+
+.shift{
+  width: 150px;
+  grid-column: span 3;
+}
+
+.rigth-shift{
+  width: 100px;
+  grid-column: span 2;
+}
+
+.ctrl,
+.alt{
+  width: 90px;
+  grid-column: span 2;
+}
+
+.rigth-ctrl,
+.rigth-alt{
+  width: 30px;
+  grid-column: span 1;
+}
+
+.win{
+  width: 30;
+}
+
+.space{
+  width: 250px;
+  grid-column: span 5;
+}
+
+.language{
+  width: 30px;
+}
