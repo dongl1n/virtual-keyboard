@@ -151,7 +151,7 @@ document.addEventListener('keydown', function(event) {
   }
 });
 
-document.addEventListener('keypress', function(event) {
+document.addEventListener('keydown', function(event) {
   console.log(event.key)
   if(event.key==' '){
     text.innerHTML=textBuf+" ";
@@ -166,24 +166,25 @@ document.addEventListener('keypress', function(event) {
     animateKey('enter');
     return;
   }
+  console.log(isCapslock)
 
   if(isCapslock){
     if(event.key && event.shiftKey){
       let key=event.key;
       for(let i=0; i<keys.length; i++)
-      if(keys[i].supKey==key){
+      if(keys[i].key==key){
         text.innerHTML=textBuf+keys[i].key;
         textBuf=textBuf+keys[i].key;
         animateKey(keys[i].key);
         carriage.drawCarriage();
-      carriage.moveRigth();
+        carriage.moveRigth();
         return;
       }
     }
 
     let key=event.key;
     for(let i=0; i<keys.length; i++)
-    if(keys[i].key==key){
+    if(keys[i].supKey==key){
       text.innerHTML=textBuf+keys[i].supKey;
       textBuf=textBuf+keys[i].supKey;
       animateKey(keys[i].supKey);
@@ -193,7 +194,7 @@ document.addEventListener('keypress', function(event) {
     }
 
   }
-  if(event.key && event.shiftKey){
+  else if(event.key && event.shiftKey){
     let key=event.key;
     for(let i=0; i<keys.length; i++)
     if(keys[i].supKey==key){
