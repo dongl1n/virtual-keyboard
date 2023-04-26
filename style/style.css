@@ -75,6 +75,10 @@ body {
   border-color: transparent;
 }
 
+.main .main__carriage {
+  color: #0059ff;
+}
+
 .keyboard {
   width: 900px;
   height: 300px;

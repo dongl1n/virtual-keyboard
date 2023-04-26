@@ -44,7 +44,16 @@ let createKeyboard= () => {
   }
 }
 
+/*Keyboard*/
 let deleteKeyboard = () => document.querySelector('.wrapper').remove();
+
+let selectLang = () => {
+  if(langCode==='En') langCode='Ru';
+  else langCode='En';
+  deleteKeyboard();
+  createKeyboard();
+  updateVar();
+}
 
 let updateVar = () => text = document.querySelector('.main__text-block');
 
@@ -69,20 +78,52 @@ let animateKey = key => {
   }
 }
 
-let selectLang = () => {
-  if(langCode==='En') langCode='Ru';
-  else langCode='En';
-  deleteKeyboard();
-  createKeyboard();
-  updateVar();
+/*Print*/
+
+let getTextArr = () => {
+  let arr = [];
+  arr[0]=[];
+  for(let i=0, j=0, k=0; i<bufText.length; i++){
+    if(k===57){
+      j++; 
+      arr[j]=[];
+      k=0;
+    }
+    if(bufText[i]==='\n'){
+      let iteration=58-arr[j].length-1;
+      for(let l=0; l<iteration; l++){
+        arr[j][k]='';
+        k++;
+      }
+      continue;
+    }
+    
+    arr[j][k]=bufText[i];
+    k++;
+  }
+  return arr;
 }
 
-/*
-del=document.querySelector('.del');
+class Carriage {
+  index=textBuf.length;
+  
+  moveLeft = () => {if(this.index) this.index--}; //Backspace and left
+  moveRigth = () => this.index++; //Add and rigth
+  checkFirstLine = () => (this.index<58)? 1:0;
+  moveTop = () => {
+    /* if(bufText.length>=this.index && this.index>=bufText.length-58){
+      if(!checkFirstLine(this.index)){
+        
+      }
+    } */
+  }
+  returnIndex = () => this.index;
+  drawCarriage = () => text.innerHTML=textBuf.slice(0, this.index) +'<span class="main__carriage">'+textBuf.slice(this.index)+'</span>'.replace(/\s(?!class)/, '&nbsp');
+  //Подвинуть вниз
+  //Подвинуть вверх
+}
 
-setInterval(()=>{
-  del.addEventListener('click', selectLang);
-}, 500)*/
+let carriage = new Carriage();
 
 setInterval(()=>{
   updateVar();
@@ -113,8 +154,8 @@ document.addEventListener('keydown', function(event) {
 document.addEventListener('keypress', function(event) {
   console.log(event.key)
   if(event.key==' '){
-    text.innerHTML=textBuf+"&nbsp";
-    textBuf=textBuf+"&nbsp";
+    text.innerHTML=textBuf+" ";
+    textBuf=textBuf+" ";
     animateKey('space');
     return;
   }
@@ -134,6 +175,8 @@ document.addEventListener('keypress', function(event) {
         text.innerHTML=textBuf+keys[i].key;
         textBuf=textBuf+keys[i].key;
         animateKey(keys[i].key);
+        carriage.drawCarriage();
+      carriage.moveRigth();
         return;
       }
     }
@@ -144,6 +187,8 @@ document.addEventListener('keypress', function(event) {
       text.innerHTML=textBuf+keys[i].supKey;
       textBuf=textBuf+keys[i].supKey;
       animateKey(keys[i].supKey);
+      carriage.drawCarriage();
+      carriage.moveRigth();
       return;
     }
 
@@ -155,6 +200,8 @@ document.addEventListener('keypress', function(event) {
       text.innerHTML=textBuf+key;
       textBuf=textBuf+keys[i].supKey;
       animateKey(keys[i].key);
+      carriage.drawCarriage();
+      carriage.moveRigth();
       return;
     }
   }
@@ -164,6 +211,8 @@ document.addEventListener('keypress', function(event) {
       text.innerHTML=textBuf+key;
       textBuf=textBuf+keys[i].key;
       animateKey(keys[i].key);
+      carriage.drawCarriage();
+      carriage.moveRigth();
       return;
     }
 });
