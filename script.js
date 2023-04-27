@@ -118,7 +118,9 @@ class Carriage {
     } */
   }
   returnIndex = () => this.index;
-  drawCarriage = () => text.innerHTML=textBuf.slice(0, this.index) +'<span class="main__carriage">'+textBuf.slice(this.index)+'</span>'.replace(/\s(?!class)/, '&nbsp');
+  drawCarriage = () => { console.log('index:' + this.index);
+    text.innerHTML=textBuf.slice(0, this.index) +'<span class="main__carriage">'+textBuf.slice(this.index)+'</span>'.replace(/\s(?!class)/, '&nbsp');
+  }
   //Подвинуть вниз
   //Подвинуть вверх
 }
@@ -157,12 +159,15 @@ document.addEventListener('keydown', function(event) {
     text.innerHTML=textBuf+" ";
     textBuf=textBuf+" ";
     animateKey('space');
+    carriage.drawCarriage();
+    carriage.moveRigth();
     return;
   }
 
   if(event.key=='Enter'){
     text.innerHTML=textBuf+"<br>";
-    textBuf=textBuf+"<br>";
+    textBuf=textBuf+" ";
+    carriage.drawCarriage();
     animateKey('enter');
     return;
   }
