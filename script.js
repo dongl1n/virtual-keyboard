@@ -167,6 +167,7 @@ document.addEventListener('keypress', function(event) {
 });
 
 document.addEventListener('keyup', function(event) {
+  event.preventDefault();
   if(event.key=='CapsLock'){
     if(isCapslock) isCapslock=0;
     else isCapslock=1;
@@ -179,8 +180,7 @@ document.addEventListener('keyup', function(event) {
 });
 
 document.addEventListener('keydown', function(event) {
-  console.log(event.key)
-  
+  event.preventDefault();
   if(event.key=='CapsLock'){
     animateKey('capslock');
     return;
