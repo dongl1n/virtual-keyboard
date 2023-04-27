@@ -60,6 +60,29 @@ let updateVar = () => text = document.querySelector('.main__text-block');
 let animateKey = key => {
   let keysPage = document.querySelectorAll('.keyboard__key');
   for(let i=0; i<keysPage.length; i++){
+    if(key==='ctrl' && keysPage[i].classList.contains('ctrl')){
+      console.log(keysPage[i])
+      keysPage[i].classList.add('keyboard__animation');
+      return;
+    }
+    if(key==='rigthCtrl' && keysPage[i].classList.contains('rigth-ctrl')){
+      console.log(keysPage[i])
+      keysPage[i].classList.add('keyboard__animation');
+      return;
+    }
+    
+    if(key==='shift' && keysPage[i].classList.contains('shift')){
+      keysPage[i].classList.add('keyboard__animation');
+      return;
+    }
+    if(key==='rigthShift' && keysPage[i].classList.contains('rigth-shift')){
+      keysPage[i].classList.add('keyboard__animation');
+      return;
+    }
+    if(key==='capslock' && keysPage[i].classList.contains('capslock')){
+      keysPage[i].classList.add('keyboard__animation');
+      return;
+    }
     if(key==='backspace' && keysPage[i].classList.contains('backspace')){
       keysPage[i].classList.add('keyboard__animation');
       return;
@@ -74,6 +97,15 @@ let animateKey = key => {
     }
     if(keysPage[i].outerText.includes(key) && (keysPage[i].classList.contains('standart') || keysPage[i].classList.contains('slash'))){
       keysPage[i].classList.add('keyboard__animation');
+    }
+    if(key==='alt' && keysPage[i].classList.contains('alt')){
+      console.log('Alt нажат')
+      keysPage[i].classList.add('keyboard__animation');
+      return;
+    }
+    if(key==='rigthAlt' && keysPage[i].classList.contains('rigth-alt') && !keysPage[i].classList.contains('rigth-ctrl')){
+      keysPage[i].classList.add('keyboard__animation');
+      return;
     }
   }
 }
@@ -131,30 +163,51 @@ setInterval(()=>{
   updateVar();
 }, 500)
 
+document.addEventListener('keypress', function(event) {
+});
 
 document.addEventListener('keyup', function(event) {
   if(event.key=='CapsLock'){
     if(isCapslock) isCapslock=0;
     else isCapslock=1;
+    animateKey('capslock');
   }
 
   let keysPage = document.querySelectorAll('.keyboard__key');
   for(let i=0; i<keysPage.length; i++) keysPage[i].classList.remove('keyboard__animation');
-  
-  if(event.key=='Backspace'){
-    animateKey('backspace');
-  }
 
-});
-
-document.addEventListener('keydown', function(event) {
-  if(event.altKey && event.shiftKey){
-    selectLang();
-  }
 });
 
 document.addEventListener('keydown', function(event) {
   console.log(event.key)
+  
+  if(event.key=='CapsLock'){
+    animateKey('capslock');
+    return;
+  }
+
+  if(event.key=='Control'){
+    if(event.location=='1') animateKey('ctrl');
+    if(event.location=='2') animateKey('rigthCtrl');
+    return;
+  }
+
+  if(event.altKey && event.shiftKey){
+    selectLang();
+  }
+
+
+  if(event.key=='Backspace'){
+    animateKey('backspace');
+    return;
+  }
+
+  if(event.key=='Shift'){
+    if(event.location=='1') animateKey('shift');
+    if(event.location=='2') animateKey('rigthShift');
+    return;
+  }
+
   if(event.key==' '){
     text.innerHTML=textBuf+" ";
     textBuf=textBuf+" ";
@@ -171,7 +224,6 @@ document.addEventListener('keydown', function(event) {
     animateKey('enter');
     return;
   }
-  console.log(isCapslock)
 
   if(isCapslock){
     if(event.key && event.shiftKey){
@@ -221,6 +273,13 @@ document.addEventListener('keydown', function(event) {
       carriage.moveRigth();
       return;
     }
+
+    if(event.key=='Alt'){
+      if(event.location=='1') animateKey('alt');
+      if(event.location=='2') animateKey('rigthAlt');
+      return;
+    }
+  //alert('Раскладка виртуальной клавиатуры не совпадает с раскладкой вашего ПК. Ввод возможен только с помощью мыши.')
 });
 
 createKeyboard();
