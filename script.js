@@ -1,4 +1,4 @@
-let langCode='En', text, textBuf='', isCapslock=0;
+let langCode='En', text, textBuf='', isCapslock=0, isFirstLeft=1;
 import keys from './assets/json/en.json' assert { type: "json" };
 
 let createKeyboard= () => {
@@ -60,13 +60,15 @@ let updateVar = () => text = document.querySelector('.main__text-block');
 let animateKey = key => {
   let keysPage = document.querySelectorAll('.keyboard__key');
   for(let i=0; i<keysPage.length; i++){
+    if(key==='tab' && keysPage[i].classList.contains('tab')){
+      keysPage[i].classList.add('keyboard__animation');
+      return;
+    }
     if(key==='ctrl' && keysPage[i].classList.contains('ctrl')){
-      console.log(keysPage[i])
       keysPage[i].classList.add('keyboard__animation');
       return;
     }
     if(key==='rigthCtrl' && keysPage[i].classList.contains('rigth-ctrl')){
-      console.log(keysPage[i])
       keysPage[i].classList.add('keyboard__animation');
       return;
     }
@@ -137,8 +139,9 @@ let getTextArr = () => {
 }
 
 class Carriage {
-  index=textBuf.length;
+  index;/*=textBuf.length;*/
   
+  createIndex = () => {this.index=textBuf.length;}
   moveLeft = () => {if(this.index) this.index--}; //Backspace and left
   moveRigth = () => this.index++; //Add and rigth
   checkFirstLine = () => (this.index<58)? 1:0;
@@ -151,13 +154,18 @@ class Carriage {
   }
   returnIndex = () => this.index;
   drawCarriage = () => { console.log('index:' + this.index);
-    text.innerHTML=textBuf.slice(0, this.index) +'<span class="main__carriage">'+textBuf.slice(this.index)+'</span>'.replace(/\s(?!class)/, '&nbsp');
+    //text.innerHTML=textBuf.slice(0, this.index) +'<span class="main__carriage">'+textBuf.slice(this.index)+'</span>'.replace(/(?<=\S)\s(?!class | ?\s)/, '&nbsp');
+    let buf=textBuf.slice(0, this.index) +'<span class="main__carriage">'+textBuf.slice(this.index, this.index+1)+'</span>'+textBuf.slice(this.index+1, textBuf.length);
+    text.innerHTML=buf.replace(/\s(?!class)/g, ' &nbsp ');
+    //let buf=textBuf.slice(0, this.index) +'<span class="main__carriage">'+textBuf.slice(this.index)+'</span>'.replace(/(?<=\S)\s(?!class | ?\s)/, '&nbsp');
+    //text.innerHTML=buf.slice(0, this.index) +'<span class="main__carriage">'+textBuf.slice(this.index)+'</span>'.replace(/\s{4}(?!class)/, 'gggg');
   }
   //Подвинуть вниз
   //Подвинуть вверх
 }
 
 let carriage = new Carriage();
+carriage.createIndex();
 
 setInterval(()=>{
   updateVar();
@@ -199,6 +207,14 @@ document.addEventListener('keydown', function(event) {
 
   if(event.key=='Backspace'){
     animateKey('backspace');
+    text.innerHTML=textBuf.slice(0, -1);
+    textBuf=textBuf.slice(0, -1);
+    if(isFirstLeft){
+      carriage.moveLeft();
+      isFirstLeft=0;
+    }
+    carriage.moveLeft();
+    carriage.drawCarriage();
     return;
   }
 
@@ -214,6 +230,17 @@ document.addEventListener('keydown', function(event) {
     animateKey('space');
     carriage.drawCarriage();
     carriage.moveRigth();
+    return;
+  }
+
+  if(event.key=='Tab'){
+    animateKey('tab');
+    for(let i=0; i<4; i++){
+      text.innerHTML=textBuf+" ";
+      textBuf=textBuf+" ";
+      carriage.drawCarriage();
+      carriage.moveRigth();
+    }
     return;
   }
 
@@ -277,6 +304,16 @@ document.addEventListener('keydown', function(event) {
     if(event.key=='Alt'){
       if(event.location=='1') animateKey('alt');
       if(event.location=='2') animateKey('rigthAlt');
+      return;
+    }
+    if(event.key=='ArrowLeft'){
+      animateKey('arrowLeft');
+      if(isFirstLeft){
+        carriage.moveLeft();
+        isFirstLeft=0;
+      }
+      carriage.moveLeft();
+      carriage.drawCarriage();
       return;
     }
   if(!(event.key=='F5')) alert('Не найдена клавиша. Проверьте соответсвие раскладки виртуальной клавиатуры с вашей раскладкой, либо наличие нужной клавиши на виртуальной клавиатуре. Если сменить раскладку не представляется возможным, используйте мышь для набора текста.')
