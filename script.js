@@ -156,6 +156,18 @@ const animateKey = (key) => {
       return;
 
     }
+    if (key === "arrowRight" && keysPage[i].classList.contains("arrow")  && keysPage[i].classList.contains("rigth")) {
+
+      keysPage[i].classList.add("keyboard__animation");
+      return;
+
+    }
+    if (key === "arrowLeft" && keysPage[i].classList.contains("arrow")  && keysPage[i].classList.contains("left")) {
+
+      keysPage[i].classList.add("keyboard__animation");
+      return;
+
+    }
 
   }
 
@@ -210,6 +222,14 @@ class Carriage {
 
     textBuf = textBuf.split("");  
     textBuf.splice(this.index, 1)
+    textBuf = textBuf.join("");
+
+  }
+
+  delKey = () => {
+
+    textBuf = textBuf.split("");  
+    textBuf.splice(this.index+1, 1)
     textBuf = textBuf.join("");
 
   }
@@ -301,6 +321,14 @@ document.addEventListener("keydown", (event) => {
 
     }
     carriage.moveLeft();
+    carriage.drawCarriage();
+    return;
+
+  }
+
+  if (event.key === "Delete") {
+
+    carriage.delKey();
     carriage.drawCarriage();
     return;
 
@@ -461,7 +489,7 @@ document.addEventListener("keydown", (event) => {
 
   if (event.key === "ArrowRight") {
 
-    animateKey("arrowRigth");
+    animateKey("arrowRight");
     if (isFirstRigth) {
 
       carriage.moveRigth;
