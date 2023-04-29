@@ -1,322 +1,457 @@
-let langCode='En', text, textBuf='', isCapslock=0, isFirstLeft=1;
-import keys from './assets/json/en.json' assert { type: "json" };
+let isCapslock = 0, isFirstLeft = 1, langCode = "En", text, textBuf = "";
 
-let createKeyboard= () => {
-  let wrapper = document.createElement('div');
-  wrapper.classList='wrapper';
+import keys from './assets/json/en.json' assert { type: "json" };
+//const keys = [];
+
+/* eslint-disable max-lines-per-function, max-statements*/
+const createKeyboard = () => {
+
+  const wrapper = document.createElement("div");
+  wrapper.classList = "wrapper";
   document.body.append(wrapper);
 
-  let main = document.createElement('div');
-  main.classList='main';
+  const main = document.createElement("div");
+  main.classList = "main";
   wrapper.append(main);
 
-  let lang = document.createElement('div');
-  lang.classList='main__lang';
+  const lang = document.createElement("div");
+  lang.classList = "main__lang";
   main.append(lang);
 
-  let langImg = document.createElement('div');
-  langImg.classList='main__lang-image';
+  const langImg = document.createElement("div");
+  langImg.classList = "main__lang-image";
   lang.append(langImg);
 
-  let langName = document.createElement('div');
-  langName.classList='main__lang-name';
-  langName.innerText=langCode + ' (shift+alt)';
+  const langName = document.createElement("div");
+  langName.classList = "main__lang-name";
+  langName.innerText = langCode + " (shift+alt)";
   lang.append(langName);
 
-  let text = document.createElement('div');
-  text.classList='main__text-block';
-  text.innerHTMLt=textBuf;
-  main.append(text);
+  const textBlock = document.createElement("div");
+  textBlock.classList = "main__text-block";
+  textBlock.innerHTMLt = textBuf;
+  main.append(textBlock);
 
-  let keyboard = document.createElement('div');
-  keyboard.classList='keyboard';
+  const keyboard = document.createElement("div");
+  keyboard.classList = "keyboard";
   main.append(keyboard);
 
-  let keyWrapper = document.createElement('div');
-  keyWrapper.classList='keyboard__key-wrapper';
+  const keyWrapper = document.createElement("div");
+  keyWrapper.classList = "keyboard__key-wrapper";
   keyboard.append(keyWrapper);
 
-  for(let i=0; i<keys.length; i++){
-    let key = document.createElement('div');
+  for (let i = 0; i < keys.length; i++) {
+
+    const key = document.createElement("div");
     key.classList = keys[i].class;
     key.innerHTML = keys[i].text;
     keyWrapper.append(key);
+
   }
-}
 
-/*Keyboard*/
-let deleteKeyboard = () => document.querySelector('.wrapper').remove();
+};
 
-let selectLang = () => {
-  if(langCode==='En') langCode='Ru';
-  else langCode='En';
+// eslint-enable max-lines-per-function, max-statements
+
+
+/* Keyboard */
+const updateVar = () => text = document.querySelector(".main__text-block");
+
+const deleteKeyboard = () => document.querySelector(".wrapper").remove();
+
+const selectLang = () => {
+
+  if (langCode === "En") {
+
+    langCode = "Ru";
+
+  } else {
+
+    langCode = "En";
+
+  }
+
   deleteKeyboard();
   createKeyboard();
   updateVar();
-}
 
-let updateVar = () => text = document.querySelector('.main__text-block');
+};
 
-let animateKey = key => {
-  let keysPage = document.querySelectorAll('.keyboard__key');
-  for(let i=0; i<keysPage.length; i++){
-    if(key==='tab' && keysPage[i].classList.contains('tab')){
-      keysPage[i].classList.add('keyboard__animation');
+/* eslint-disable max-lines-per-function, max-statements, complexity*/
+const animateKey = (key) => {
+
+  const keysPage = document.querySelectorAll(".keyboard__key");
+  for (let i = 0; i < keysPage.length; i++) {
+
+    if (key === "tab" && keysPage[i].classList.contains("tab")) {
+
+      keysPage[i].classList.add("keyboard__animation");
       return;
+
     }
-    if(key==='ctrl' && keysPage[i].classList.contains('ctrl')){
-      keysPage[i].classList.add('keyboard__animation');
+
+    if (key === "ctrl" && keysPage[i].classList.contains("ctrl")) {
+
+      keysPage[i].classList.add("keyboard__animation");
       return;
+
     }
-    if(key==='rigthCtrl' && keysPage[i].classList.contains('rigth-ctrl')){
-      keysPage[i].classList.add('keyboard__animation');
+    if (key === "rigthCtrl" && keysPage[i].classList.contains("rigth-ctrl")) {
+
+      keysPage[i].classList.add("keyboard__animation");
       return;
+
     }
-    
-    if(key==='shift' && keysPage[i].classList.contains('shift')){
-      keysPage[i].classList.add('keyboard__animation');
+    if (key === "shift" && keysPage[i].classList.contains("shift")) {
+
+      keysPage[i].classList.add("keyboard__animation");
       return;
+
     }
-    if(key==='rigthShift' && keysPage[i].classList.contains('rigth-shift')){
-      keysPage[i].classList.add('keyboard__animation');
+    if (key === "rigthShift" && keysPage[i].classList.contains("rigth-shift")) {
+
+      keysPage[i].classList.add("keyboard__animation");
       return;
+
     }
-    if(key==='capslock' && keysPage[i].classList.contains('capslock')){
-      keysPage[i].classList.add('keyboard__animation');
+    if (key === "capslock" && keysPage[i].classList.contains("capslock")) {
+
+      keysPage[i].classList.add("keyboard__animation");
       return;
+
     }
-    if(key==='backspace' && keysPage[i].classList.contains('backspace')){
-      keysPage[i].classList.add('keyboard__animation');
+    if (key === "backspace" && keysPage[i].classList.contains("backspace")) {
+
+      keysPage[i].classList.add("keyboard__animation");
       return;
+
     }
-    if(key==='space' && keysPage[i].classList.contains('space')){
-      keysPage[i].classList.add('keyboard__animation');
+    if (key === "space" && keysPage[i].classList.contains("space")) {
+
+      keysPage[i].classList.add("keyboard__animation");
       return;
+
     }
-    if(key==='enter' && keysPage[i].classList.contains('enter')){
-      keysPage[i].classList.add('keyboard__animation');
+    if (key === "enter" && keysPage[i].classList.contains("enter")) {
+
+      keysPage[i].classList.add("keyboard__animation");
       return;
+
     }
-    if(keysPage[i].outerText.includes(key) && (keysPage[i].classList.contains('standart') || keysPage[i].classList.contains('slash'))){
-      keysPage[i].classList.add('keyboard__animation');
-    }
-    if(key==='alt' && keysPage[i].classList.contains('alt')){
-      console.log('Alt нажат')
-      keysPage[i].classList.add('keyboard__animation');
+    if (keysPage[i].outerText.includes(key) && (keysPage[i].classList.contains("standart") || keysPage[i].classList.contains("slash"))) { // eslint-disable-line max-len
+
+      keysPage[i].classList.add("keyboard__animation");
       return;
+
     }
-    if(key==='rigthAlt' && keysPage[i].classList.contains('rigth-alt') && !keysPage[i].classList.contains('rigth-ctrl')){
-      keysPage[i].classList.add('keyboard__animation');
+    if (key === "alt" && keysPage[i].classList.contains("alt")) {
+
+      keysPage[i].classList.add("keyboard__animation");
       return;
+
     }
+    if (key === "rigthAlt" && keysPage[i].classList.contains("rigth-alt") && !keysPage[i].classList.contains("rigth-ctrl")) { // eslint-disable-line max-len
+
+      keysPage[i].classList.add("keyboard__animation");
+      return;
+
+    }
+
   }
-}
 
-/*Print*/
+};
 
-let getTextArr = () => {
-  let arr = [];
-  arr[0]=[];
-  for(let i=0, j=0, k=0; i<bufText.length; i++){
-    if(k===57){
-      j++; 
-      arr[j]=[];
-      k=0;
-    }
-    if(bufText[i]==='\n'){
-      let iteration=58-arr[j].length-1;
-      for(let l=0; l<iteration; l++){
-        arr[j][k]='';
-        k++;
-      }
-      continue;
-    }
-    
-    arr[j][k]=bufText[i];
-    k++;
-  }
-  return arr;
-}
 
+/* Print */
 class Carriage {
-  index;/*=textBuf.length;*/
-  
-  createIndex = () => {this.index=textBuf.length;}
-  moveLeft = () => {if(this.index) this.index--}; //Backspace and left
-  moveRigth = () => this.index++; //Add and rigth
-  checkFirstLine = () => (this.index<58)? 1:0;
-  moveTop = () => {
-    /* if(bufText.length>=this.index && this.index>=bufText.length-58){
-      if(!checkFirstLine(this.index)){
-        
-      }
-    } */
-  }
+
+  index = textBuf.length;
+
+  // Backspace and left
+  moveLeft = () => {
+
+    if (this.index) {
+
+      this.index--;
+
+    }
+
+  };
+
+  // Add and rigth
+  moveRigth = () => this.index++;
+
+  checkFirstLine = () => {
+
+    this.index = this.index < 58 ? 1 : 0;
+
+  };
+
+  // !moveTop = () => {}
+
   returnIndex = () => this.index;
-  drawCarriage = () => { console.log('index:' + this.index);
-    //text.innerHTML=textBuf.slice(0, this.index) +'<span class="main__carriage">'+textBuf.slice(this.index)+'</span>'.replace(/(?<=\S)\s(?!class | ?\s)/, '&nbsp');
-    let buf=textBuf.slice(0, this.index) +'<span class="main__carriage">'+textBuf.slice(this.index, this.index+1)+'</span>'+textBuf.slice(this.index+1, textBuf.length);
-    text.innerHTML=buf.replace(/\s(?!class)/g, ' &nbsp ');
-    //let buf=textBuf.slice(0, this.index) +'<span class="main__carriage">'+textBuf.slice(this.index)+'</span>'.replace(/(?<=\S)\s(?!class | ?\s)/, '&nbsp');
-    //text.innerHTML=buf.slice(0, this.index) +'<span class="main__carriage">'+textBuf.slice(this.index)+'</span>'.replace(/\s{4}(?!class)/, 'gggg');
-  }
-  //Подвинуть вниз
-  //Подвинуть вверх
+
+  drawCarriage = () => {
+
+    let buf = textBuf.slice(0, this.index) +'<span class="main__carriage">'+textBuf.slice(this.index, this.index+1)+'</span>'+textBuf.slice(this.index+1, textBuf.length); // eslint-disable-line
+    text.innerHTML = buf.replace(/\s(?!class)/gu, " &nbsp ");
+
+  };
+
 }
 
-let carriage = new Carriage();
-carriage.createIndex();
+const carriage = new Carriage();
 
-setInterval(()=>{
-  updateVar();
-}, 500)
+setInterval(
+  () => {
 
-document.addEventListener('keypress', function(event) {
+    updateVar();
+
+  },
+  500
+);
+
+document.addEventListener("keyup", (event) => {
+
+  event.preventDefault();
+  if (event.key === "CapsLock") {
+
+    if (isCapslock) {
+
+      isCapslock = 0;
+
+    } else {
+
+      isCapslock = 1;
+
+    }
+    animateKey("capslock");
+
+  }
+
+  const keysPage = document.querySelectorAll(".keyboard__key");
+  for (let i = 0; i < keysPage.length; i++) {
+
+    keysPage[i].classList.remove("keyboard__animation");
+
+  }
+
 });
 
-document.addEventListener('keyup', function(event) {
+/* eslint-disable max-lines-per-function, max-statements, complexity*/
+document.addEventListener("keydown", (event) => {
+
   event.preventDefault();
-  if(event.key=='CapsLock'){
-    if(isCapslock) isCapslock=0;
-    else isCapslock=1;
-    animateKey('capslock');
-  }
+  if (event.key === "CapsLock") {
 
-  let keysPage = document.querySelectorAll('.keyboard__key');
-  for(let i=0; i<keysPage.length; i++) keysPage[i].classList.remove('keyboard__animation');
-
-});
-
-document.addEventListener('keydown', function(event) {
-  event.preventDefault();
-  if(event.key=='CapsLock'){
-    animateKey('capslock');
+    animateKey("capslock");
     return;
+
   }
 
-  if(event.key=='Control'){
-    if(event.location=='1') animateKey('ctrl');
-    if(event.location=='2') animateKey('rigthCtrl');
-    return;
+  if (event.key === "Control") {
+
+    if (event.location === 1) {
+
+      animateKey("ctrl");
+      return;
+
+    }
+    if (event.location === 2) {
+
+      animateKey("rigthCtrl");
+      return;
+
+    }
+
   }
 
-  if(event.altKey && event.shiftKey){
+  if (event.altKey && event.shiftKey) {
+
     selectLang();
+
   }
 
 
-  if(event.key=='Backspace'){
-    animateKey('backspace');
-    text.innerHTML=textBuf.slice(0, -1);
-    textBuf=textBuf.slice(0, -1);
-    if(isFirstLeft){
+  if (event.key === "Backspace") {
+
+    animateKey("backspace");
+    text.innerHTML = textBuf.slice(0, -1);
+    textBuf = textBuf.slice(0, -1);
+    if (isFirstLeft) {
+
       carriage.moveLeft();
-      isFirstLeft=0;
+      isFirstLeft = 0;
+
     }
     carriage.moveLeft();
     carriage.drawCarriage();
     return;
+
   }
 
-  if(event.key=='Shift'){
-    if(event.location=='1') animateKey('shift');
-    if(event.location=='2') animateKey('rigthShift');
-    return;
+  if (event.key === "Shift") {
+
+    if (event.location === 1) {
+
+      animateKey("shift");
+      return;
+
+    }
+    if (event.location === 2) {
+
+      animateKey("rigthShift");
+      return;
+
+    }
+
   }
 
-  if(event.key==' '){
-    text.innerHTML=textBuf+" ";
-    textBuf=textBuf+" ";
-    animateKey('space');
+  if (event.key === " ") {
+
+    text.innerHTML = textBuf + " ";
+    textBuf += " ";
+    animateKey("space");
     carriage.drawCarriage();
     carriage.moveRigth();
     return;
+
   }
 
-  if(event.key=='Tab'){
-    animateKey('tab');
-    for(let i=0; i<4; i++){
-      text.innerHTML=textBuf+" ";
-      textBuf=textBuf+" ";
+  if (event.key === "Tab") {
+
+    animateKey("tab");
+    for (let i = 0; i < 4; i++) {
+
+      text.innerHTML = textBuf + " ";
+      textBuf += " ";
       carriage.drawCarriage();
       carriage.moveRigth();
+
     }
     return;
+
   }
 
-  if(event.key=='Enter'){
-    text.innerHTML=textBuf+"<br>";
-    textBuf=textBuf+" ";
+  if (event.key === "Enter") {
+
+    text.innerHTML = textBuf + "<br>";
+    textBuf += " ";
     carriage.drawCarriage();
-    animateKey('enter');
+    animateKey("enter");
     return;
+
   }
 
-  if(isCapslock){
-    if(event.key && event.shiftKey){
-      let key=event.key;
-      for(let i=0; i<keys.length; i++)
-      if(keys[i].key==key){
-        text.innerHTML=textBuf+keys[i].key;
-        textBuf=textBuf+keys[i].key;
+  if (isCapslock) {
+
+    if (event.key && event.shiftKey) {
+
+      for (let i = 0; i < keys.length; i++) {
+
+        if (keys[i].key === event.key) {
+
+          text.innerHTML = textBuf + keys[i].key;
+          textBuf += keys[i].key;
+          animateKey(keys[i].key);
+          carriage.drawCarriage();
+          carriage.moveRigth();
+          return;
+
+        }
+
+      }
+
+    }
+
+    for (let i = 0; i < keys.length; i++) {
+
+      if (keys[i].supKey === event.key) {
+
+        text.innerHTML = textBuf + keys[i].supKey;
+        textBuf += keys[i].supKey;
+        animateKey(keys[i].supKey);
+        carriage.drawCarriage();
+        carriage.moveRigth();
+        return;
+
+      }
+
+    }
+
+  } else if (event.key && event.shiftKey) {
+
+    for (let i = 0; i < keys.length; i++) {
+
+      if (keys[i].supKey === event.key) {
+
+        text.innerHTML = textBuf + event.key;
+        textBuf += keys[i].supKey;
         animateKey(keys[i].key);
         carriage.drawCarriage();
         carriage.moveRigth();
         return;
-      }
-    }
 
-    let key=event.key;
-    for(let i=0; i<keys.length; i++)
-    if(keys[i].supKey==key){
-      text.innerHTML=textBuf+keys[i].supKey;
-      textBuf=textBuf+keys[i].supKey;
-      animateKey(keys[i].supKey);
-      carriage.drawCarriage();
-      carriage.moveRigth();
-      return;
+      }
+
     }
 
   }
-  else if(event.key && event.shiftKey){
-    let key=event.key;
-    for(let i=0; i<keys.length; i++)
-    if(keys[i].supKey==key){
-      text.innerHTML=textBuf+key;
-      textBuf=textBuf+keys[i].supKey;
+
+  for (let i = 0; i < keys.length; i++) {
+
+    if (keys[i].key === event.key) {
+
+      text.innerHTML = textBuf + event.key;
+      textBuf += keys[i].key;
       animateKey(keys[i].key);
       carriage.drawCarriage();
       carriage.moveRigth();
       return;
-    }
-  }
-    let key=event.key;
-    for(let i=0; i<keys.length; i++)
-    if(keys[i].key==key){
-      text.innerHTML=textBuf+key;
-      textBuf=textBuf+keys[i].key;
-      animateKey(keys[i].key);
-      carriage.drawCarriage();
-      carriage.moveRigth();
-      return;
+
     }
 
-    if(event.key=='Alt'){
-      if(event.location=='1') animateKey('alt');
-      if(event.location=='2') animateKey('rigthAlt');
-      return;
+  }
+
+  if (event.key === "Alt") {
+
+    if (event.location === 1) {
+
+      animateKey("alt");
+
     }
-    if(event.key=='ArrowLeft'){
-      animateKey('arrowLeft');
-      if(isFirstLeft){
-        carriage.moveLeft();
-        isFirstLeft=0;
-      }
+    if (event.location === 2) {
+
+      animateKey("rigthAlt");
+
+    }
+    return;
+
+  }
+
+  if (event.key === "ArrowLeft") {
+
+    animateKey("arrowLeft");
+    if (isFirstLeft) {
+
       carriage.moveLeft();
-      carriage.drawCarriage();
-      return;
+      isFirstLeft = 0;
+
     }
-  if(!(event.key=='F5')) alert('Не найдена клавиша. Проверьте соответсвие раскладки виртуальной клавиатуры с вашей раскладкой, либо наличие нужной клавиши на виртуальной клавиатуре. Если сменить раскладку не представляется возможным, используйте мышь для набора текста.')
+    carriage.moveLeft();
+    carriage.drawCarriage();
+    return;
+
+  }
+  if (!(event.key === "F5")) {
+
+    /* eslint-disable max-len*/
+    alert("Не найдена клавиша. Проверьте соответсвие раскладки виртуальной клавиатуры" +
+    "с вашей раскладкой, либо наличие нужной клавиши на виртуальной клавиатуре." +
+    "Если сменить раскладку не представляется возможным, используйте мышь для набора текста.");
+
+  }
+
 });
 
 createKeyboard();
