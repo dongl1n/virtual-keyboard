@@ -1,4 +1,4 @@
-let isCapslock = 0, isFirstLeft = 1, langCode = "En", text, textBuf = "";
+let isCapslock = 0, isFirstLeft = 1, isFirstRigth = 1, langCode = "En", text, textBuf = "";
 
 import keys from './assets/json/en.json' assert { type: "json" };
 //const keys = [];
@@ -198,6 +198,22 @@ class Carriage {
 
   };
 
+  printKey = (key) => {
+
+      textBuf = textBuf.split("");  
+      textBuf.splice(this.index, 0, key)
+      textBuf = textBuf.join("");
+
+  };
+
+  backspaceKey = () => {
+
+    textBuf = textBuf.split("");  
+    textBuf.splice(this.index, 1)
+    textBuf = textBuf.join("");
+
+  }
+
 }
 
 const carriage = new Carriage();
@@ -269,6 +285,7 @@ document.addEventListener("keydown", (event) => {
   if (event.altKey && event.shiftKey) {
 
     selectLang();
+    return;
 
   }
 
@@ -276,8 +293,7 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Backspace") {
 
     animateKey("backspace");
-    text.innerHTML = textBuf.slice(0, -1);
-    textBuf = textBuf.slice(0, -1);
+    carriage.backspaceKey();
     if (isFirstLeft) {
 
       carriage.moveLeft();
@@ -309,8 +325,7 @@ document.addEventListener("keydown", (event) => {
 
   if (event.key === " ") {
 
-    text.innerHTML = textBuf + " ";
-    textBuf += " ";
+    carriage.printKey(" ");
     animateKey("space");
     carriage.drawCarriage();
     carriage.moveRigth();
@@ -324,7 +339,7 @@ document.addEventListener("keydown", (event) => {
     for (let i = 0; i < 4; i++) {
 
       text.innerHTML = textBuf + " ";
-      textBuf += " ";
+      carriage.printKey(" ");
       carriage.drawCarriage();
       carriage.moveRigth();
 
@@ -336,7 +351,8 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
 
     text.innerHTML = textBuf + "<br>";
-    textBuf += " ";
+    //textBuf += " ";
+    carriage.printKey("");
     carriage.drawCarriage();
     animateKey("enter");
     return;
@@ -351,8 +367,7 @@ document.addEventListener("keydown", (event) => {
 
         if (keys[i].key === event.key) {
 
-          text.innerHTML = textBuf + keys[i].key;
-          textBuf += keys[i].key;
+          carriage.printKey(keys[i].key);
           animateKey(keys[i].key);
           carriage.drawCarriage();
           carriage.moveRigth();
@@ -369,7 +384,7 @@ document.addEventListener("keydown", (event) => {
       if (keys[i].supKey === event.key) {
 
         text.innerHTML = textBuf + keys[i].supKey;
-        textBuf += keys[i].supKey;
+        carriage.printKey(keys[i].supKey);
         animateKey(keys[i].supKey);
         carriage.drawCarriage();
         carriage.moveRigth();
@@ -384,9 +399,9 @@ document.addEventListener("keydown", (event) => {
     for (let i = 0; i < keys.length; i++) {
 
       if (keys[i].supKey === event.key) {
-
+      
         text.innerHTML = textBuf + event.key;
-        textBuf += keys[i].supKey;
+        carriage.printKey(keys[i].supKey);
         animateKey(keys[i].key);
         carriage.drawCarriage();
         carriage.moveRigth();
@@ -401,9 +416,9 @@ document.addEventListener("keydown", (event) => {
   for (let i = 0; i < keys.length; i++) {
 
     if (keys[i].key === event.key) {
-
+      
       text.innerHTML = textBuf + event.key;
-      textBuf += keys[i].key;
+      carriage.printKey(keys[i].key);
       animateKey(keys[i].key);
       carriage.drawCarriage();
       carriage.moveRigth();
@@ -443,10 +458,25 @@ document.addEventListener("keydown", (event) => {
     return;
 
   }
+
+  if (event.key === "ArrowRight") {
+
+    animateKey("arrowRigth");
+    if (isFirstRigth) {
+
+      carriage.moveRigth;
+      isFirstRigth = 0;
+
+    }
+    carriage.moveRigth();
+    carriage.drawCarriage();
+    return;
+
+  }
   if (!(event.key === "F5")) {
 
     /* eslint-disable max-len*/
-    alert("Не найдена клавиша. Проверьте соответсвие раскладки виртуальной клавиатуры" +
+    alert("Не найдена клавиша. Проверьте соответсвие раскладки виртуальной клавиатуры (в том числе capslock)" +
     "с вашей раскладкой, либо наличие нужной клавиши на виртуальной клавиатуре." +
     "Если сменить раскладку не представляется возможным, используйте мышь для набора текста.");
 
