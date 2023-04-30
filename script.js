@@ -1,7 +1,31 @@
 let isCapslock = 0, isFirstLeft = 1, isFirstRigth = 1,
-  langCode = "En", text, textBuf = "";
+  langCode, text, textBuf = "", newKeys;
+let keysPage;
 
-import keys from './assets/json/en.json' assert { type: "json" };
+import keysEn from "./assets/json/en.json" assert { type: "json" };
+import keysRu from "./assets/json/ru.json" assert { type: "json" };
+
+
+function getLocalStorage() {
+  if(localStorage.langCode) {
+    langCode = localStorage.langCode;
+  }
+  else langCode = 'En';
+}
+
+window.addEventListener('load', getLocalStorage());
+
+let keys;
+if(langCode === "En") {
+  
+  keys = keysEn;
+
+} else {
+
+  keys = keysRu;
+
+}
+
 //const keys = [];
 
 /* eslint-disable max-lines-per-function, max-statements*/
@@ -56,7 +80,11 @@ const createKeyboard = () => {
 
 
 /* Keyboard */
-const updateVar = () => text = document.querySelector(".main__text-block");
+const updateVar = () => {
+  
+  text = document.querySelector(".main__text-block");
+  keysPage = document.querySelectorAll(".keyboard__key");
+}
 
 const deleteKeyboard = () => document.querySelector(".wrapper").remove();
 
@@ -65,16 +93,19 @@ const selectLang = () => {
   if (langCode === "En") {
 
     langCode = "Ru";
+    keys = keysRu;
 
   } else {
 
     langCode = "En";
+    keys = keysEn;
 
   }
-
+  localStorage.langCode = langCode;
   deleteKeyboard();
   createKeyboard();
   updateVar();
+  carriage.drawCarriage();
 
 };
 
@@ -537,99 +568,98 @@ document.addEventListener("keydown", (event) => {
 });
 
 createKeyboard();
-updateVar();
+keysPage = document.querySelectorAll(".keyboard__key");
+updateVar(keysPage);
 
-const keysPage = document.querySelectorAll(".keyboard__key");
-for (let i = 0; i < keysPage.length; i++) {
-
-  keysPage[i].addEventListener("click", () => {
-
-    if (keysPage[i].classList.contains("backspace")) {
-
-      carriage.backspaceKey();
-      carriage.moveLeft();
-      carriage.drawCarriage();
-      return;
-
-    }
-
-    if (keysPage[i].classList.contains("tab")) {
-
-      animateKey("tab");
-      for (let j = 0; j < 4; j++) {
-
-        text.innerHTML = textBuf + " ";
+  for (let i = 0; i < keysPage.length; i++) {
+    keysPage[i].addEventListener("click", () => {
+  
+      if (keysPage[i].classList.contains("backspace")) {
+  
+        carriage.backspaceKey();
+        carriage.moveLeft();
+        carriage.drawCarriage();
+        return;
+  
+      }
+  
+      if (keysPage[i].classList.contains("tab")) {
+  
+        animateKey("tab");
+        for (let j = 0; j < 4; j++) {
+  
+          text.innerHTML = textBuf + " ";
+          carriage.printKey(" ");
+          carriage.drawCarriage();
+          carriage.moveRigth();
+  
+        }
+        return;
+  
+      }
+  
+      if (keysPage[i].classList.contains("del")) {
+  
+        carriage.delKey();
+        carriage.drawCarriage();
+        return;
+  
+      }
+  
+      if (keysPage[i].classList.contains("left") && keysPage[i].classList.contains("arrow")) {
+  
+        if (isFirstLeft) {
+  
+          carriage.moveLeft();
+          isFirstLeft = 0;
+  
+        }
+        carriage.moveLeft();
+        carriage.drawCarriage();
+        return;
+  
+      }
+  
+      if (keysPage[i].classList.contains("rigth") && keysPage[i].classList.contains("arrow")) {
+  
+        if (isFirstLeft) {
+  
+          carriage.moveRigth();
+          isFirstLeft = 0;
+  
+        }
+        carriage.moveRigth();
+        carriage.drawCarriage();
+        return;
+  
+      }
+  
+      if (keysPage[i].classList.contains("space")) {
+  
         carriage.printKey(" ");
         carriage.drawCarriage();
         carriage.moveRigth();
-
+        return;
+  
       }
-      return;
-
-    }
-
-    if (keysPage[i].classList.contains("del")) {
-
-      carriage.delKey();
-      carriage.drawCarriage();
-      return;
-
-    }
-
-    if (keysPage[i].classList.contains("left") && keysPage[i].classList.contains("arrow")) {
-
-      if (isFirstLeft) {
-
-        carriage.moveLeft();
-        isFirstLeft = 0;
-
-      }
-      carriage.moveLeft();
-      carriage.drawCarriage();
-      return;
-
-    }
-
-    if (keysPage[i].classList.contains("rigth") && keysPage[i].classList.contains("arrow")) {
-
-      if (isFirstLeft) {
-
-        carriage.moveRigth();
-        isFirstLeft = 0;
-
-      }
-      carriage.moveRigth();
-      carriage.drawCarriage();
-      return;
-
-    }
-
-    if (keysPage[i].classList.contains("space")) {
-
-      carriage.printKey(" ");
-      carriage.drawCarriage();
-      carriage.moveRigth();
-      return;
-
-    }
-
-    if (keysPage[i].classList.contains("standart")) {
-
-      for (let j = 0; j < keys.length; j++) {
-
-        if (keysPage[i].outerText.includes(keys[j].key)) {
-
-          carriage.printKey(keys[j].key);
-          carriage.drawCarriage();
-          carriage.moveRigth();
-          return;
-
+  
+      if (keysPage[i].classList.contains("standart")) {
+  
+        for (let j = 0; j < keys.length; j++) {
+  
+          if (keysPage[i].outerText.includes(keys[j].key)) {
+  
+            carriage.printKey(keys[j].key);
+            carriage.drawCarriage();
+            carriage.moveRigth();
+            return;
+  
+          }
+  
         }
-
+  
       }
-
-    }
-
-  });
-
-}
+  
+    });
+  
+  }
