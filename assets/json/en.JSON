@@ -302,7 +302,7 @@
     "supKey": ">"
   },
   {
-    "text": "<span>/</span>?",
+    "text": "<span>?</span>/",
     "class": "keyboard__key standart",
     "key": "/",
     "supKey": "?"
