@@ -1,4 +1,5 @@
-let isCapslock = 0, isFirstLeft = 1, isFirstRigth = 1, langCode = "En", text, textBuf = "";
+let isCapslock = 0, isFirstLeft = 1, isFirstRigth = 1,
+  langCode = "En", text, textBuf = "";
 
 import keys from './assets/json/en.json' assert { type: "json" };
 //const keys = [];
@@ -156,25 +157,25 @@ const animateKey = (key) => {
       return;
 
     }
-    if (key === "arrowRight" && keysPage[i].classList.contains("arrow")  && keysPage[i].classList.contains("rigth")) {
+    if (key === "arrowRight" && keysPage[i].classList.contains("arrow") && keysPage[i].classList.contains("rigth")) { // eslint-disable-line max-len
 
       keysPage[i].classList.add("keyboard__animation");
       return;
 
     }
-    if (key === "arrowLeft" && keysPage[i].classList.contains("arrow")  && keysPage[i].classList.contains("left")) {
+    if (key === "arrowLeft" && keysPage[i].classList.contains("arrow") && keysPage[i].classList.contains("left")) { // eslint-disable-line max-len
 
       keysPage[i].classList.add("keyboard__animation");
       return;
 
     }
-    if (key === "arrowUp" && keysPage[i].classList.contains("arrow")  && keysPage[i].classList.contains("up")) {
+    if (key === "arrowUp" && keysPage[i].classList.contains("arrow") && keysPage[i].classList.contains("up")) { // eslint-disable-line max-len
 
       keysPage[i].classList.add("keyboard__animation");
       return;
 
     }
-    if (key === "arrowDown" && keysPage[i].classList.contains("arrow")  && keysPage[i].classList.contains("bottom")) {
+    if (key === "arrowDown" && keysPage[i].classList.contains("arrow") && keysPage[i].classList.contains("bottom")) { // eslint-disable-line max-len
 
       keysPage[i].classList.add("keyboard__animation");
       return;
@@ -222,35 +223,35 @@ class Carriage {
   returnIndex = () => this.index;
 
   drawCarriage = () => {
+
     let buf = textBuf.slice(0, this.index) + '<span class="main__carriage">' + textBuf.slice(this.index, this.index+1) + '</span>' + textBuf.slice(this.index+1, textBuf.length); // eslint-disable-line
-    //buf = buf.replace(/_v1rt_ent3r_butt0n_c0de_/gu, " fdifjdjidf ");
     text.innerHTML = buf.replace(/\s(?!class)/gu, " &nbsp ");
 
   };
 
   printKey = (key) => {
 
-      textBuf = textBuf.split("");  
-      textBuf.splice(this.index, 0, key)
-      textBuf = textBuf.join("");
+    textBuf = textBuf.split("");
+    textBuf.splice(this.index, 0, key);
+    textBuf = textBuf.join("");
 
   };
 
   backspaceKey = () => {
 
-    textBuf = textBuf.split("");  
-    textBuf.splice(this.index, 1)
+    textBuf = textBuf.split("");
+    textBuf.splice(this.index, 1);
     textBuf = textBuf.join("");
 
-  }
+  };
 
   delKey = () => {
 
-    textBuf = textBuf.split("");  
-    textBuf.splice(this.index + 1, 1)
+    textBuf = textBuf.split("");
+    textBuf.splice(this.index + 1, 1);
     textBuf = textBuf.join("");
 
-  }
+  };
 
 }
 
@@ -339,6 +340,7 @@ document.addEventListener("keydown", (event) => {
   }
 
   if (event.key === "Delete") {
+
     animateKey("del");
     carriage.delKey();
     carriage.drawCarriage();
@@ -438,7 +440,7 @@ document.addEventListener("keydown", (event) => {
     for (let i = 0; i < keys.length; i++) {
 
       if (keys[i].supKey === event.key) {
-      
+
         text.innerHTML = textBuf + event.key;
         carriage.printKey(keys[i].supKey);
         animateKey(keys[i].key);
@@ -455,7 +457,7 @@ document.addEventListener("keydown", (event) => {
   for (let i = 0; i < keys.length; i++) {
 
     if (keys[i].key === event.key) {
-      
+
       text.innerHTML = textBuf + event.key;
       carriage.printKey(keys[i].key);
       animateKey(keys[i].key);
@@ -497,13 +499,12 @@ document.addEventListener("keydown", (event) => {
     return;
 
   }
-
   if (event.key === "ArrowRight") {
 
     animateKey("arrowRight");
     if (isFirstRigth) {
 
-      carriage.moveRigth;
+      carriage.moveRigth();
       isFirstRigth = 0;
 
     }
@@ -542,7 +543,7 @@ const keysPage = document.querySelectorAll(".keyboard__key");
 for (let i = 0; i < keysPage.length; i++) {
 
   keysPage[i].addEventListener("click", () => {
-    
+
     if (keysPage[i].classList.contains("backspace")) {
 
       carriage.backspaceKey();
@@ -555,7 +556,7 @@ for (let i = 0; i < keysPage.length; i++) {
     if (keysPage[i].classList.contains("tab")) {
 
       animateKey("tab");
-      for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 4; j++) {
 
         text.innerHTML = textBuf + " ";
         carriage.printKey(" ");
@@ -564,11 +565,11 @@ for (let i = 0; i < keysPage.length; i++) {
 
       }
       return;
-  
+
     }
 
     if (keysPage[i].classList.contains("del")) {
-    
+
       carriage.delKey();
       carriage.drawCarriage();
       return;
@@ -576,7 +577,7 @@ for (let i = 0; i < keysPage.length; i++) {
     }
 
     if (keysPage[i].classList.contains("left") && keysPage[i].classList.contains("arrow")) {
-    
+
       if (isFirstLeft) {
 
         carriage.moveLeft();
@@ -590,7 +591,7 @@ for (let i = 0; i < keysPage.length; i++) {
     }
 
     if (keysPage[i].classList.contains("rigth") && keysPage[i].classList.contains("arrow")) {
-    
+
       if (isFirstLeft) {
 
         carriage.moveRigth();
@@ -604,7 +605,7 @@ for (let i = 0; i < keysPage.length; i++) {
     }
 
     if (keysPage[i].classList.contains("space")) {
-    
+
       carriage.printKey(" ");
       carriage.drawCarriage();
       carriage.moveRigth();
@@ -615,20 +616,20 @@ for (let i = 0; i < keysPage.length; i++) {
     if (keysPage[i].classList.contains("standart")) {
 
       for (let j = 0; j < keys.length; j++) {
-        console.log(keysPage[i].outerText + " " + keys[j].key)
+
         if (keysPage[i].outerText.includes(keys[j].key)) {
-          
+
           carriage.printKey(keys[j].key);
           carriage.drawCarriage();
           carriage.moveRigth();
           return;
-    
+
         }
-    
+
       }
 
     }
 
-  })
+  });
 
 }

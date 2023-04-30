@@ -26,7 +26,7 @@ module.exports = {
     "id-length": [
       "error",
       {
-        "exceptions": ["i"],
+        "exceptions": ["i", "j"],
       },
     ],
     "no-return-assign": "off",
@@ -36,11 +36,12 @@ module.exports = {
       "error",
 
       {
-        "max": 500,
+        "max": 700,
       },
     ],
 
     "no-alert": "off",
+    "no-loop-func": "off",
 
   },
 
