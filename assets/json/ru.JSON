@@ -1,0 +1,350 @@
+[
+  {
+    "text": "Ёё",
+    "class": "keyboard__key standart",
+    "key": "ё",
+    "supKey": "Ё"
+  },
+  {
+    "text": "<span>!</span>1",
+    "class": "keyboard__key standart",
+    "key": "1",
+    "supKey": "!"
+  },
+  {
+    "text": "<span>\"</span>2",
+    "class": "keyboard__key standart",
+    "key": "2",
+    "supKey": "\""
+  },
+  {
+    "text": "<span>№</span>3",
+    "class": "keyboard__key standart",
+    "key": "3",
+    "supKey": "№"
+  },
+  {
+    "text": "<span>;</span>4",
+    "class": "keyboard__key standart",
+    "key": "4",
+    "supKey": ";"
+  },
+  {
+    "text": "<span>%</span>5",
+    "class": "keyboard__key standart",
+    "key": "5",
+    "supKey": "%"
+  },
+  {
+    "text": "<span>:</span>6",
+    "class": "keyboard__key standart",
+    "key": "6",
+    "supKey": ":"
+  },
+  {
+    "text": "<span>?</span>7",
+    "class": "keyboard__key standart",
+    "key": "7",
+    "supKey": "?"
+  },
+  {
+    "text": "<span>*</span>8",
+    "class": "keyboard__key standart",
+    "key": "8",
+    "supKey": "*"
+  },
+  {
+    "text": "<span>(</span>9",
+    "class": "keyboard__key standart",
+    "key": "9",
+    "supKey": "("
+  },
+  {
+    "text": "<span>)</span>0",
+    "class": "keyboard__key standart",
+    "key": "0",
+    "supKey": ")"
+  },
+  {
+    "text": "<span>_</span>-",
+    "class": "keyboard__key standart",
+    "key": "-",
+    "supKey": "_"
+  },
+  {
+    "text": "<span>+</span>=",
+    "class": "keyboard__key standart",
+    "key": "=",
+    "supKey": "+"
+  },
+  {
+    "text": "Backspace",
+    "class": "keyboard__key backspace"
+  },
+  {
+    "text": "Tab ↹",
+    "class": "keyboard__key tab"
+  },
+  {
+    "text": "Йй",
+    "class": "keyboard__key standart",
+    "key": "й",
+    "supKey": "Й"
+  },
+  {
+    "text": "Цц",
+    "class": "keyboard__key standart",
+    "key": "ц",
+    "supKey": "Ц"
+  },
+  {
+    "text": "Уу",
+    "class": "keyboard__key standart",
+    "key": "у",
+    "supKey": "У"
+  },
+  {
+    "text": "Кк",
+    "class": "keyboard__key standart",
+    "key": "к",
+    "supKey": "К"
+  },
+  {
+    "text": "Ее",
+    "class": "keyboard__key standart",
+    "key": "е",
+    "supKey": "Е"
+  },
+  {
+    "text": "Нн",
+    "class": "keyboard__key standart",
+    "key": "н",
+    "supKey": "Н"
+  },
+  {
+    "text": "Гг",
+    "class": "keyboard__key standart",
+    "key": "г",
+    "supKey": "Г"
+  },
+  {
+    "text": "Шш",
+    "class": "keyboard__key standart",
+    "key": "ш",
+    "supKey": "Ш"
+  },
+  {
+    "text": "Щщ",
+    "class": "keyboard__key standart",
+    "key": "щ",
+    "supKey": "Щ"
+  },
+  {
+    "text": "Зз",
+    "class": "keyboard__key standart",
+    "key": "з",
+    "supKey": "З"
+  },
+  {
+    "text": "Хх",
+    "class": "keyboard__key standart",
+    "key": "х",
+    "supKey": "Х"
+  },
+  {
+    "text": "Ъъ",
+    "class": "keyboard__key standart",
+    "key": "ъ",
+    "supKey": "Ъ"
+  },
+  {
+    "text": "<span>/</span>\\",
+    "class": "keyboard__key slash",
+    "key": "\\",
+    "supKey": "/"
+  },
+  {
+    "text": "Del",
+    "class": "keyboard__key del"
+  },
+  {
+    "text": "Caps Lock",
+    "class": "keyboard__key capslock"
+  },
+  {
+    "text": "Фф",
+    "class": "keyboard__key standart",
+    "key": "ф",
+    "supKey": "Ф"
+  },
+  {
+    "text": "Ыы",
+    "class": "keyboard__key standart",
+    "key": "ы",
+    "supKey": "Ы"
+  },
+  {
+    "text": "Вв",
+    "class": "keyboard__key standart",
+    "key": "в",
+    "supKey": "В"
+  },
+  {
+    "text": "Аа",
+    "class": "keyboard__key standart",
+    "key": "а",
+    "supKey": "А"
+  },
+  {
+    "text": "Пп",
+    "class": "keyboard__key standart",
+    "key": "п",
+    "supKey": "П"
+  },
+  {
+    "text": "Рр",
+    "class": "keyboard__key standart",
+    "key": "р",
+    "supKey": "Р"
+  },
+  {
+    "text": "Оо",
+    "class": "keyboard__key standart",
+    "key": "о",
+    "supKey": "О"
+  },
+  {
+    "text": "Лл",
+    "class": "keyboard__key standart",
+    "key": "л",
+    "supKey": "Л"
+  },
+  {
+    "text": "Дд",
+    "class": "keyboard__key standart",
+    "key": "д",
+    "supKey": "Д"
+  },
+  {
+    "text": "Жж",
+    "class": "keyboard__key standart",
+    "key": "ж",
+    "supKey": "Ж"
+  },
+  {
+    "text": "Ээ",
+    "class": "keyboard__key standart",
+    "key": "э",
+    "supKey": "Э"
+  },
+  {
+    "text": "Enter ↵",
+    "class": "keyboard__key enter",
+    "key": "enter",
+    "supKey": "enter"
+  },
+  {
+    "text": "⇧ Shift",
+    "class": "keyboard__key shift"
+  },
+  {
+    "text": "Яя",
+    "class": "keyboard__key standart",
+    "key": "я",
+    "supKey": "Я"
+  },
+  {
+    "text": "Чч",
+    "class": "keyboard__key standart",
+    "key": "ч",
+    "supKey": "Ч"
+  },
+  {
+    "text": "Сс",
+    "class": "keyboard__key standart",
+    "key": "с",
+    "supKey": "С"
+  },
+  {
+    "text": "Мм",
+    "class": "keyboard__key standart",
+    "key": "м",
+    "supKey": "М"
+  },
+  {
+    "text": "Ии",
+    "class": "keyboard__key standart",
+    "key": "и",
+    "supKey": "И"
+  },
+  {
+    "text": "Тт",
+    "class": "keyboard__key standart",
+    "key": "т",
+    "supKey": "Т"
+  },
+  {
+    "text": "Ьь",
+    "class": "keyboard__key standart",
+    "key": "ь",
+    "supKey": "Ь"
+  },
+  {
+    "text": "Бб",
+    "class": "keyboard__key standart",
+    "key": "б",
+    "supKey": "Б"
+  },
+  {
+    "text": "Юю",
+    "class": "keyboard__key standart",
+    "key": "ю",
+    "supKey": "Ю"
+  },
+  {
+    "text": "<span>,</span>.",
+    "class": "keyboard__key standart",
+    "key": ".",
+    "supKey": ","
+  },
+  {
+    "text": "↑",
+    "class": "keyboard__key arrow up"
+  },
+  {
+    "text": "Shift",
+    "class": "keyboard__key rigth-shift"
+  },
+  {
+    "text": "Ctrl",
+    "class": "keyboard__key ctrl"
+  },
+  {
+    "text": "Alt",
+    "class": "keyboard__key alt"
+  },
+  {
+    "text": " ",
+    "class": "keyboard__key space"
+  },
+  {
+    "text": "Alt",
+    "class": "keyboard__key rigth-alt"
+  },
+  {
+    "text": "Ctrl",
+    "class": "keyboard__key rigth-ctrl"
+  },
+  {
+    "text": "←",
+    "class": "keyboard__key arrow left"
+  },
+  {
+    "text": "↓",
+    "class": "keyboard__key arrow bottom"
+  },
+  {
+    "text": "→",
+    "class": "keyboard__key arrow rigth"
+  }
+]
