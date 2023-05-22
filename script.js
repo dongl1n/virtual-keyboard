@@ -2,8 +2,8 @@ let isCapslock = 0, isFirstLeft = 1, isFirstRigth = 1,
   langCode, text, textBuf = "";
 let keysPage;
 
-import keysEn from "../assets/json/en.json" assert { type: "json" };
-import keysRu from "../assets/json/ru.json" assert { type: "json" };
+import keysEn from "../../assets/json/en.json" assert { type: "json" };
+import keysRu from "../../assets/json/ru.json" assert { type: "json" };
 
 
 const getLocalStorage = () => {
